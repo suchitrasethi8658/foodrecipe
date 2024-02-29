@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        body {
+            background: url("{% static 'images/download (3).jpg' %}");
+            background-size: cover;
+        }
+
+        .head,
+        .search_menu {
+            text-align: center;
+        }
+
+        .search_menu,
+        .menu table {
+            width: 100%;
+            text-align: center;
+
+        }
+
+        .menu table td:hover {
+            background: rgba(0, 0, 255, 0.3);
+
+        }
+
+        .search_menu,
+        .menu table td {
+            border: 4px solid #ddd;
+            background: rgb(130, 122, 104);
+            background-repeat: no-repeat;
+
+        }
+
+        .search_menu,
+        .menu table,
+        .menu table th,
+        .menu table td {
+            border: 15px;
+            border-collapse: collapse;
+
+        }
+
+        .search_menu,
+        .menu table th,
+        .menu table td {
+            padding: 15px;
+
+        }
+
+
+        .topic h1 {
+            color: black;
+            padding: 2px;
+            text-align: center;
+            border-style: none;
+            height: 100px;
+            width: 1330px;
+            float: left;
+
+
+        }
+
+        .mainholder {
+
+            position: relative;
+            top: 50px;
+            left: 50px;
+            z-index: 999;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head" style="border-style:solid;width:1330px;height:60px;margin-top:0px;background:#d9dde0">
+        <h1 style="color:maroon; font-size:29px;margin-left:74px;margin-top:10px;">
+
+            WELCOME TO FOOD RECIPE</h1>
+    </div>
+    <div class="background-image">
+
+        <div class="menu">
+            <div class="search_menu">
+                <form action="{% url 'search_recipe' user.userid%}" method="GET">
+                    <input type="text" name="query" placeholder="Search by name or ingredients...">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+
+            <table>
+
+                <tr>
+                    <td><a style="color:yellow;text-decoration: none;" href="{% url 'mydetails' user.userid%}">MY
+                            DETAILS</a></td>
+                    <td><a style="color:yellow;text-decoration: none;" href="{% url 'update_details' user.userid %}">
+                            UPDATE DETAILS</a></td>
+                    <td><a style="color:yellow;text-decoration: none;" href="{% url 'recipe_list' user.userid %}">RECIPE
+                            LIST</a></td>
+                    <td><a style="color:yellow;text-decoration: none;" href="{% url 'login' %}">LOGOUT</a></td>
+
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+    <div class="marqee">
+
+    </div>
+    <div class="mainholder">
+        {% block userblock %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

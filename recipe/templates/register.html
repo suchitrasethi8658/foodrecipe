@@ -1,0 +1,72 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<style>
+    body {
+        background: url("{% static 'images/download (4).jpg' %}");
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <h1 style="color:rgb(243, 242, 242); background-color:#6200ff; font-size:29px;margin-left:0px;margin-top:18px;">FOOD
+        RECIPE</h1>
+    <form method="POST" style="background-color: whitesmoke;">
+        {% csrf_token %}
+
+        <table id="users">
+            <tr>
+                <td> FIRSTNAME :</td>
+                <td>{{ form.firstname }}</td>
+            </tr>
+            <tr>
+                <td> LASTNAME :</td>
+                <td>{{ form.lastname }}</td>
+            </tr>
+            <tr>
+                <td>USERID :</td>
+                <td>{{ form.userid }}</td>
+            </tr>
+            <tr>
+                <td>PASSWORD :</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            <tr>
+                <td>PHONE NUMBER</td>
+                <td>{{ form.phoneno }}</td>
+            </tr>
+            <tr>
+                <td>EMAIL :</td>
+                <td>{{ form.email}}</td>
+            </tr>
+            <tr>
+                <td>GENDER</td>
+                <td><select name="gender">
+                        <option disabled="disabled" selected="selected">Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select></td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center;" colspan="2"><input type="submit" name="submit" value="REGISTER"></td>
+
+            </tr>
+        </table>
+        <button class="button" type="button"><a href="{% url 'login' %}"
+                style="color:rgb(0, 0, 0);text-decoration:none">Already Have account</a></button>
+
+    </form>
+
+</body>
+
+</html>

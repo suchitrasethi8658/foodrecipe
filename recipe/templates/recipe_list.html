@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            background: url("{% static 'images/download (2).jpg' %}");
+            background-size: cover;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="table" style="border-style:solid;width:1290px;height:60px;margin-top:30px;background:#6200ff">
+            <h1 style="color:rgb(243, 242, 242); font-size:29px;margin-left:0px;margin-top:1px;">
+
+                RECIPE LIST
+            </h1>
+        </div>
+
+        <table>
+            <tr>
+                <th>RECIPE NAME</th>
+                <th>ACTION</th>
+            </tr>
+            {% for recipe in recipes %}
+            <tr>
+                <td><a href="{% url 'recipe_detail' recipe.id user.userid%}">{{ recipe.name }}</a></td>
+                <td>
+                    <a class="edit" href="{% url 'edit_recipe' recipe.id user.userid %}">UPDATE_RECIPE
+                    </a>
+                    <a class="delete" href="{% url 'delete_recipe' recipe.id user.userid%}">DELETE_RECIPE
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{% url 'add_recipe' userid=user.userid %}">
+            <button class="button">ADD RECIPE</button>
+        </a><br>
+        <a href="{% url 'mydetails' userid=user.userid %}">
+            <button class="button">BACK TO PROFILE</button>
+        </a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Details</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+</head>
+<style>
+    body {
+        background: url("{% static 'images/download (4).jpg' %}");
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <h2>UPDATE DETAILS</h2>
+    <form method="post">
+        {% csrf_token %}
+        <table id="users">
+            <tr>
+                <td> FIRSTNAME :</td>
+                <td>{{ form.firstname }}</td>
+            </tr>
+            <tr>
+                <td> LASTNAME :</td>
+                <td>{{ form.lastname }}</td>
+            </tr>
+            <tr>
+                <td>USERID :</td>
+                <td>{{ form.userid }}</td>
+            </tr>
+            <tr>
+                <td>PASSWORD :</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            <tr>
+                <td>PHONE NUMBER</td>
+                <td>{{ form.phoneno }}</td>
+            </tr>
+            <tr>
+                <td>EMAIL :</td>
+                <td>{{ form.email}}</td>
+            </tr>
+            <tr>
+                <td>GENDER</td>
+                <td><select name="gender">
+                        <option disabled="disabled" selected="selected">Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select></td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center;" colspan="2"><input type="submit" name="submit" value="UPDATE"></td>
+
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

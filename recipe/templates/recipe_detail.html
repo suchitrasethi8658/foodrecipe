@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECIPE DETAILS</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="table" style="border-style:solid;width:1290px;height:60px;margin-top:30px;background:#6200ff">
+            <h1 style="color:rgb(243, 242, 242); font-size:29px;margin-left:0px;margin-top:1px;">
+
+                RECIPE DETAILS
+            </h1>
+        </div>
+        <table>
+            <tr>
+                <th>RECIPE NAME</th>
+                <th>DESCRIPTION</th>
+                <th>INGREDIENTS</th>
+                <th>STEPS</th>
+                <th>IMAGE</th>
+
+
+            </tr>
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.description }}</td>
+                <td>{{ recipe.ingredients }}</td>
+                <td>{{ recipe.steps }}</td>
+                <td><img src="{{ recipe.image.url }}" alt="RECIPE IMAGE" </td>
+            </tr>
+        </table>
+        <a href="{% url 'mydetails' userid=user.userid %}">
+            <button class="button">BACK TO PROFILE</button>
+        </a>
+    </div>
+</body>

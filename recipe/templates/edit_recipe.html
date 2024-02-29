@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPDATE RECIPE</title>
+    <style>
+        body {
+            background: linear-gradient(pink, rgb(184, 115, 126), rgb(105, 102, 103));
+            background-size: cover;
+        }
+
+        .container {
+            text-align: center;
+            justify-content: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Edit Recipe</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">SAVE CHANGES</button>
+        </form>
+    </div>
+</body>
+
+</html>

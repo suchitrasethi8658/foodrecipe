@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background: url("{% static 'images/download (2).jpg' %}");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 12px solid #dbe2e8;
+        }
+
+        input {
+            padding: 10px 10px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .table {
+            display: table;
+            border-collapse: separate;
+            border-spacing: 2px;
+            border-color: grey;
+            margin-top: 130px;
+            margin-left: 5px;
+            font-family: cooper;
+            font-size: unset;
+            color: black;
+            border: 12px solid #dbe2e8;
+            border-radius: 10px;
+            background-color: white
+        }
+
+        .register {
+            position: absolute;
+            top: 50%;
+            left: 73%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(19, 4, 39);
+            font-family: cooper;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 191px;
+            margin-left: -409px;
+        }
+
+        .register:hover {
+            background-color: black;
+            background: url("{% static 'hotel.jpg' %}");
+
+        }
+
+        h1 {
+            font-family: cooper;
+
+            text-align: center;
+            color: #eb1513;
+            font-size: 50px;
+
+        }
+
+        .log {
+            background: url("{% static 'login.png' %} ");
+            background-size: cover;
+            width: 100px;
+            height: 50px;
+        }
+
+        tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+
+        .registerimage {
+            border-style: solid;
+            width: 387px;
+            height: 296px;
+            margin-top: -292px;
+            margin-left: 51px;
+            background: url("{% static '1y.jpg' %}");
+            background-size: 100%100%;
+
+        }
+
+        .registerimage1 {
+            border-style: solid;
+            width: 380px;
+            height: 296px;
+            margin-top: -292px;
+            margin-left: 851px;
+            background: url("{% static '1w.jpg' %}");
+            background-size: 100%100%;
+
+        }
+
+        .button {
+            background-color: #35bcc5;
+            border: none;
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table" style="border-style:solid;width:1290px;height:60px;margin-top:30px;background:#6200ff">
+        <h1 style="color:rgb(243, 242, 242); font-size:29px;margin-left:0px;margin-top:18px;">
+
+            LOGIN TO ACCESS ACCOUNT
+        </h1>
+    </div>
+
+    <div class="table" style="border-style:solid;;margin-top:115px;margin-left:495px;padding: 40px;text-align: center;">
+        <form method="post">
+
+            {% csrf_token %}
+
+            <label></label>
+            <input type="text" name="userid" placeholder="userid" class="email" style="color:black"><br>
+
+            <label></label>
+            <input type="password" name="password" placeholder="password" class="pass"><br>
+
+            <button type="submit">LOGIN HERE!</button><br>
+            <button class="button" type="button"><a href="{% url 'register' %}"
+                    style="color:black;text-decoration:none">New User</a></button>
+
+        </form>
+
+
+    </div>
+
+    <script>
+        (function () {
+            var imgLen = document.getElementById('imgGallary');
+            var images = imgLen.getElementsByTagName('img');
+            var counter = 1;
+
+            if (counter <= images.length) {
+                setInterval(function () {
+                    images[0].src = images[counter].src;
+                    console.log(images[counter].src);
+                    counter++;
+
+                    if (counter === images.length) {
+                        counter = 1;
+                    }
+                }, 4000);
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

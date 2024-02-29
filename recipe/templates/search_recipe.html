@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Recipe</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+</head>
+<style>
+    a {
+        font-size: larger;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(pink, rgb(212, 84, 84), rgb(155, 139, 139));
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <h2>SEARCH RECIPE</h2>
+    <form method="get">
+        <input type="text" name="query" placeholder="Search for a recipe">
+        <button type="submit">SEARCH</button>
+    </form>
+    {% for recipe in recipes %}
+    <p><a href="{% url 'recipe_detail' recipe_id=recipe.id  userid=user.userid%}">{{ recipe.name }}</a></p>
+    {% endfor %}
+</body>
+
+</html>

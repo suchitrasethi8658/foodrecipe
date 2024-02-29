@@ -1,0 +1,27 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+</head>
+<style>
+    body {
+        background: linear-gradient(pink, rgb(212, 84, 84), rgb(155, 139, 139));
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <h2>ADD RECIPE</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ADD RECIPE</button>
+    </form>
+</body>
+
+</html>
