@@ -57,14 +57,12 @@ def search_recipe(request, userid):
     else:
         recipes = Recipe.objects.all()
     return render(request, 'search_recipe.html', {'recipes': recipes, 'user':user})
-
-@login_required
+    
 def recipe_list(request,userid):
     user = RegisterModel.objects.get(userid=userid)
     recipes = Recipe.objects.filter(author=user)
     return render(request, 'recipe_list.html', {'recipes': recipes, 'user': user})
-
-@login_required
+    
 def add_recipe(request,userid):
     user = RegisterModel.objects.get(userid=userid)
     if request.method == 'POST':
